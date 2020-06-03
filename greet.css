@@ -1,8 +1,18 @@
 h1{
+    display: inline-block;
     border-style: inset;
 border-color: aqua;
-padding-left: 1em;
+
 margin: 1em;
+text-align: justify;
+}
+.container {
+    display: inline-block;
+    margin: 1.5rem;
+    
+}
+.content{
+    margin: 2.5rem;
 }
 
 .greetMessage {
@@ -10,6 +20,7 @@ text-align: justify;
 }
 
 .greetBtn {
-margin-right: 8px;
+    display: inline-block;
+margin: 1.5rem;
 align-content: center;
 }
