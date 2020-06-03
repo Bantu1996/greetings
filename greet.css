@@ -1,0 +1,15 @@
+h1{
+    border-style: inset;
+border-color: aqua;
+padding-left: 1em;
+margin: 1em;
+}
+
+.greetMessage {
+text-align: justify;
+}
+
+.greetBtn {
+margin-right: 8px;
+align-content: center;
+}
