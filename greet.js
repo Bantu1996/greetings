@@ -40,18 +40,15 @@ var cownt = document.querySelector(".theNumber").innerHTML;
 if (activeName === "") {
     cownt;
 }
-else if(!activeName === "") 
-{
- cownt--;   
-}
 else {
- cownt++;   
+ cownt++;  
 }
+
 
 document.querySelector(".theNumber").innerHTML = cownt;
 
 
-//alert(currentNumber.value)
+//alert(activeName)
     } 
 }
 greetButton.addEventListener("click", Dumelang)
