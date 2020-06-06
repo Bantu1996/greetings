@@ -1,25 +1,24 @@
-h2{
-    display: inline-block;
-    border-style: inset;
-border-color: aqua;
-font-size: 36px;
 
-margin: 1em;
-
-}
 h1{
-    font-size: 74px;
+    font-size: 50px;
+    border-style: solid;
+    border-color: aqua;
+    font-style: italic;
+    display: inline-block;
 
 }
 .theNumber{
-   font-size: 74px; 
+   font-size: 60px; 
+   font-style: oblique;
+color: violet;
 }
 
 .container {
-    display: inline-block;
-    margin: 1.5rem;
-    
-}
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
 .content{
     margin: 2.5rem;
 }
@@ -32,4 +31,25 @@ text-align: justify;
     display: inline-block;
 margin: 1.5rem;
 align-content: center;
+}
+ 
+@media only screen and (min-width: 414px) {  
+  .container {
+    width: 100%;
+    display: flex;
+    max-width:414px;
+  }
+}
+
+@media only screen and (min-width: 414px) { 
+    h1 {
+        font-size: 74px;
+        border-style: solid;
+        border-color: aqua;
+        display: flex;
+        font-style: italic;
+        
+       
+       
+    }
 }
