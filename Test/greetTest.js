@@ -7,9 +7,7 @@ describe("The Greetings factory function", function() {
           let greetThem = GreetWithRespect();
     
           
-          greetThem.setNametToGreet(activeName); 
-          
-          assert.equal(greetThem.getNametToGreet(activeName),);
+          assert.equal();
     
         });
     })

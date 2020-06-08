@@ -17,6 +17,8 @@ color: violet;
     width: 100%;
     margin-left: auto;
     margin-right: auto;
+    font-style: normal;
+    font-weight: bold;
   }
 
 .content{
