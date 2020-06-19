@@ -4,26 +4,36 @@ const greetMessage = document.querySelector(".greetMessage");
 const greetRadio = document.querySelector(".greetRadio");
 const theNumber = document.querySelector(".theNumber")
 
+
+// var greetedGreetNames;
+// // if (localStorage['activeName']) {
+//   greetedGreetNames = JSON.parse(localStorage.getItem('activeName'))
+
+// // }
+
 var greetInstance = GreetWithRespect();
 
 function iribow() {
 
-    activeName = greetName.value;
-    var greetingHumans = greetInstance.dumelang(activeName);
-    var cownt = document.querySelector(".theNumber").innerHTML;
+    const checkedRadioBtns = document.querySelector(".greetRadio:checked")
+    if (checkedRadioBtns) {
+        var selectedLanguage = checkedRadioBtns.value;
+        var activeName = greetName.value;
 
-if (activeName  === "") {
-    cownt;
+        var greetingSet = greetInstance.greetingLanguages(selectedLanguage, activeName);
+        var greetedCounter = greetInstance.greetCounter();
+        var names = greetInstance.setName(activeName);
+       //var greetCount = document.querySelector(".theNumber").innerHTML;
+        greetMessage.innerHTML = greetingSet;
+       theNumber.innerHTML = greetedCounter;
+       greetName.innerHTML = names;
+
+      
+      localStorage.setItem('activeName', JSON.stringify(greetInstance.getName()));
+      console.log(greetInstance.getName())
 }
-else {
-    cownt++;
-}
 
-
-document.querySelector(".theNumber").innerHTML = cownt;
-
-
-alert(cownt)
-    } 
-
-greetButton.addEventListener("click", iribow)
+    }
+     // document.querySelector(".theNumber").innerHTML = greetCount;
+    
+    greetButton.addEventListener("click", iribow)

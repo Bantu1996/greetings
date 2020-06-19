@@ -1,42 +1,48 @@
-function GreetWithRespect() {
+function GreetWithRespect(saluted) {
+const  greetedNames = saluted || {};
 
-    function dumelang() {
+var greetCow = 0;
 
-        activeName = greetName.value;
-
-        const message = "Hello, " + activeName ;
-        const myalezo = "Molo, " + activeName ;
-        const boodskap = "Goeie More, " + activeName ;
-        
-        const checkedRadioBtns = document.querySelector(".greetRadio:checked")
-        if (checkedRadioBtns){
-         var  greetRadio = checkedRadioBtns.value
-        
-        var greetingsRadio = greetRadio;
-        
-        
-        
-        if (greetingsRadio === "English") {
-        
-            greetMessage.innerHTML = message;
-            
+function setName(activeName) {
+    if(activeName) {
+    if(greetedNames[activeName] === undefined) {
+       greetCow++;
+       greetedNames[activeName] = 0;
+    }
+ }
+}
+    function greetingLanguages(selectedLanguage, activeName) {
+       
+        if (selectedLanguage === "English") {
+            return "Hello, " + activeName;
         }
-        else if (greetingsRadio === "Afrikaans") {
-        
-            greetMessage.innerHTML = boodskap;
-          
+        if (selectedLanguage === "Afrikaans") {
+            return "Goeie More, " + activeName;
+        }
+        if(selectedLanguage === "IsiXhosa") {
+            return  "Molo, " + activeName;
         }
         else {
-            greetMessage.innerHTML = myalezo;
-           
-        }
-        
-        
+           return "Please select a language..."
 
-   
+       }
+
+       greetCounter()
 }
+
+    function greetCounter() {
+    return greetCow;
     }
+    
+       function getName() {
+           return greetedNames;  
+        }
+    
+
     return {
-        dumelang
+        setName,
+        greetingLanguages,
+        greetCounter,
+        getName
     }
 }
