@@ -4,14 +4,21 @@ const greetMessage = document.querySelector(".greetMessage");
 const greetRadio = document.querySelector(".greetRadio");
 const theNumber = document.querySelector(".theNumber")
 
+const resetBtnElem = document.querySelector(".resetBtn")
 
-// var greetedGreetNames;
-// // if (localStorage['activeName']) {
-//   greetedGreetNames = JSON.parse(localStorage.getItem('activeName'))
 
-// // }
+var greetedGreetNames;
+ if (localStorage['name']) {
+  greetedGreetNames = JSON.parse(localStorage.getItem('name'))
 
-var greetInstance = GreetWithRespect();
+ }
+
+ window.addEventListener('load', function(){
+    theNumber.innerHTML =  greetInstance.greetCounter();;
+
+ })
+
+var greetInstance = GreetWithRespect(greetedGreetNames);
 
 function iribow() {
 
@@ -21,19 +28,21 @@ function iribow() {
         var activeName = greetName.value;
 
         var greetingSet = greetInstance.greetingLanguages(selectedLanguage, activeName);
-        var greetedCounter = greetInstance.greetCounter();
         var names = greetInstance.setName(activeName);
-       //var greetCount = document.querySelector(".theNumber").innerHTML;
-        greetMessage.innerHTML = greetingSet;
-       theNumber.innerHTML = greetedCounter;
-       greetName.innerHTML = names;
+     
+      localStorage.setItem('name', JSON.stringify(greetInstance.getName()));
 
-      
-      localStorage.setItem('activeName', JSON.stringify(greetInstance.getName()));
-      console.log(greetInstance.getName())
+      greetMessage.innerHTML = greetingSet;
+      theNumber.innerHTML =  greetInstance.greetCounter();;
+
 }
 
     }
-     // document.querySelector(".theNumber").innerHTML = greetCount;
-    
+
+    function resetButton(){
+        location.reload()
+        localStorage.clear()
+    }
+
+    resetBtnElem.addEventListener('click', resetButton)
     greetButton.addEventListener("click", iribow)
