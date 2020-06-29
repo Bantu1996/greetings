@@ -1,16 +1,32 @@
 function GreetWithRespect(saluted) {
-const  greetedNames = saluted || {};
+    const greetedNames = saluted || {};
 
-var greetCow = 0;
 
-function setName(activeName) {
-    if(activeName) {
-    if(greetedNames[activeName] === undefined) {
-       greetCow++;
-       greetedNames[activeName] = 0;
+    function setName(activeName) {
+        if (activeName) {
+            if (greetedNames[activeName] === undefined) {
+                greetedNames[activeName] = 0;
+            }
+        }
+        // errorhandler();
     }
- }
-}
+
+    function errorhandler(selectedLanguage, activeName){
+        if(activeName === ""){
+          return "Please enter the name"
+        }
+        if(activeName === "" && selectedLanguage === undefined){
+         return "Please enter the name and select the the lang"
+        }
+        if(selectedLanguage === undefined){
+       return "Please select the language"
+        }
+        if(activeName === true){
+          return "Add a correct name format"
+        }
+      }
+
+
     function greetingLanguages(selectedLanguage, activeName) {
        
         if (selectedLanguage === "English") {
@@ -19,30 +35,28 @@ function setName(activeName) {
         if (selectedLanguage === "Afrikaans") {
             return "Goeie More, " + activeName;
         }
-        if(selectedLanguage === "IsiXhosa") {
-            return  "Molo, " + activeName;
+        if (selectedLanguage === "IsiXhosa") {
+            return "Molo, " + activeName;
+     
         }
-        else {
-           return "Please select a language..."
-
-       }
-
-      
-}
+        // errorhandler();
+    }
 
     function greetCounter() {
-    return greetCow;
+        var namesList = Object.keys(greetedNames)
+        return namesList.length;
     }
-    
-       function getName() {
-           return greetedNames;  
-        }
-    
+
+    function getName() {
+        return greetedNames;
+    }
+
 
     return {
         setName,
         greetingLanguages,
         greetCounter,
-        getName
+        getName,
+         errorhandler
     }
 }

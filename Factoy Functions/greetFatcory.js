@@ -10,7 +10,7 @@ function GreetWithRespect(saluted) {
         }
     }
     function greetingLanguages(selectedLanguage, activeName) {
-
+       
         if (selectedLanguage === "English") {
             return "Hello, " + activeName;
         }
@@ -19,10 +19,6 @@ function GreetWithRespect(saluted) {
         }
         if (selectedLanguage === "IsiXhosa") {
             return "Molo, " + activeName;
-        }
-        else {
-            return "Please select a language..."
-
         }
 
     }
