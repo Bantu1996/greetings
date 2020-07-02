@@ -11,20 +11,20 @@ function GreetWithRespect(saluted) {
         // errorhandler();
     }
 
-    function errorhandler(selectedLanguage, activeName){
-        if(activeName === ""){
-          return "Please enter the name"
-        }
-        if(activeName === "" && selectedLanguage === undefined){
-         return "Please enter the name and select the the lang"
-        }
-        if(selectedLanguage === undefined){
-       return "Please select the language"
-        }
-        if(activeName === true){
-          return "Add a correct name format"
-        }
-      }
+    // function errorhandler(selectedLanguage, activeName){
+    //     if(activeName === ""){
+    //       return "Please enter the name"
+    //     }
+    //     if(activeName === "" && selectedLanguage === undefined){
+    //      return "Please enter the name and select the the lang"
+    //     }
+    //     if(selectedLanguage === undefined){
+    //    return "Please select the language"
+    //     }
+    //     if(activeName === true){
+    //       return "Add a correct name format"
+    //     }
+    //   }
 
 
     function greetingLanguages(selectedLanguage, activeName) {
@@ -37,7 +37,6 @@ function GreetWithRespect(saluted) {
         }
         if (selectedLanguage === "IsiXhosa") {
             return "Molo, " + activeName;
-     
         }
         // errorhandler();
     }
@@ -57,6 +56,6 @@ function GreetWithRespect(saluted) {
         greetingLanguages,
         greetCounter,
         getName,
-         errorhandler
+       //  errorhandler
     }
 }
