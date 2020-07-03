@@ -4,7 +4,7 @@ const greetMessage = document.querySelector(".greetMessage");
 const greetRadio = document.querySelector(".greetRadio");
 const theNumber = document.querySelector(".theNumber");
 const resetBtnElem = document.querySelector(".resetBtn");
-const rush =  document.getElementById("countdown");
+const rush = document.getElementById("countdown");
 
 var greetedGreetNames;
 if (localStorage['name']) {
@@ -19,65 +19,46 @@ var greetInstance = GreetWithRespect(greetedGreetNames);
 
 function iribow() {
 
-const userGama = greetName.value;
-var activeName = userGama.charAt(0).toUpperCase() + userGama.slice(1).toLowerCase() 
+    const userGama = greetName.value;
+    var activeName = userGama.charAt(0).toUpperCase() + userGama.slice(1).toLowerCase()
 
-        if(activeName) {
-            greetInstance.setName(activeName);
-        }
+    if (activeName) {
+        greetInstance.setName(activeName);
+    }
 
-        var selectedLanguage = document.querySelector(".greetRadio:checked")
-        // if (checkedRadioBtns) {
-        //     var selectedLanguage = checkedRadioBtns.value
-    
+    var selectedLanguage = document.querySelector(".greetRadio:checked")
+    if (activeName === "" && selectedLanguage === null) {
 
-       
-         if (activeName === "" && selectedLanguage === null) {
-           
-            greetMessage.innerHTML = "Please enter the name and select the the lang"
-        }
-         else if (activeName === "") {
-          //  alert(activeName)
-            greetMessage.innerHTML = "Please enter the name"
-        }
-        else if (selectedLanguage === null) {
-            //alert(selectedLanguage)
-            greetMessage.innerHTML = "Please select the language"
-        }
-       
-        else if (!(activeName === "" && selectedLanguage === null)) {
-             
-            greetMessage.innerHTML = greetInstance.greetingLanguages(selectedLanguage.value, activeName);
+        greetMessage.innerHTML = "Please enter the name and select the the lang"
+    }
+    else if (activeName === "") {
+        greetMessage.innerHTML = "Please enter the name"
+    }
+    else if (selectedLanguage === null) {
+        greetMessage.innerHTML = "Please select the language"
+    }
 
-            // var greetingSet = greetInstance.greetingLanguages(selectedLanguage, activeName);
-            // var names = greetInstance.setName(activeName);  
-            localStorage.setItem('name', JSON.stringify(greetInstance.getName()));
-            // greetMessage.innerHTML = greetingSet;
-            theNumber.innerHTML = greetInstance.greetCounter();
-           
+    else if (!(activeName === "" && selectedLanguage === null)) {
+        greetMessage.innerHTML = greetInstance.greetingLanguages(selectedLanguage.value, activeName);
+        localStorage.setItem('name', JSON.stringify(greetInstance.getName()));
+        theNumber.innerHTML = greetInstance.greetCounter();
 
-            var timeleft = 10;
-            var downloadTimer = setInterval(function(){
-              if(timeleft <= 0){
+
+        var timeleft = 10;
+        var downloadTimer = setInterval(function () {
+            if (timeleft <= 0) {
+                location.reload();
                 clearInterval(downloadTimer);
                 rush.innerHTML = "Finished";
-              } else {
+            } else {
                 rush.innerHTML = timeleft + " seconds remaining";
-              }
-              timeleft -= 1;
-            }, 1000);
-            // if(localStorage.length > 0) {
-            //     greetInstance.setName();
+            }
+            timeleft -= 1;
+        }, 1000);
+        
+    }
 
-            // }
-            // else{
-            //     "No item"
-            // }
-        }
-         
-        }
-    
-
+}
 function resetButton() {
     location.reload()
     localStorage.clear()
