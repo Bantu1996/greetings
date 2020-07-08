@@ -12,7 +12,8 @@ if (localStorage['name']) {
 
 }
 window.addEventListener('load', function () {
-    theNumber.innerHTML = greetInstance.greetCounter();;
+    theNumber.innerHTML = greetInstance.greetCounter();
+
 })
 
 var greetInstance = GreetWithRespect(greetedGreetNames);
@@ -21,7 +22,7 @@ function iribow() {
 
     const userGama = greetName.value;
     var activeName = userGama.charAt(0).toUpperCase() + userGama.slice(1).toLowerCase()
-
+    var namePattern = /^[a-zA-Z]+$/;
     if (activeName) {
         greetInstance.setName(activeName);
     }
@@ -30,34 +31,42 @@ function iribow() {
     if (activeName === "" && selectedLanguage === null) {
 
         greetMessage.innerHTML = "Please enter the name and select the the lang"
+        setTimeout(function () {
+            greetMessage.innerHTML = ""
+            location.reload();
+        }, 5000)
     }
     else if (activeName === "") {
         greetMessage.innerHTML = "Please enter the name"
+        setTimeout(function () {
+            greetMessage.innerHTML = ""
+            location.reload();
+        }, 5000)
     }
     else if (selectedLanguage === null) {
         greetMessage.innerHTML = "Please select the language"
+        setTimeout(function () {
+            greetMessage.innerHTML = ""
+            location.reload();
+        }, 5000)
     }
-
-    else if (!(activeName === "" && selectedLanguage === null)) {
+    else if (userGama !== "" && !namePattern.test(userGama)) {
+        greetMessage.innerHTML = "Please enter a name without numbers"
+        setTimeout(function () {
+            greetMessage.innerHTML = ""
+            location.reload();
+        }, 5000)
+    }
+    else if (activeName && selectedLanguage) {
         greetMessage.innerHTML = greetInstance.greetingLanguages(selectedLanguage.value, activeName);
         localStorage.setItem('name', JSON.stringify(greetInstance.getName()));
         theNumber.innerHTML = greetInstance.greetCounter();
+        setTimeout(function () {
+            greetMessage.innerHTML = " "
+            location.reload();
+        }, 5000)
 
-
-        var timeleft = 10;
-        var downloadTimer = setInterval(function () {
-            if (timeleft <= 0) {
-                location.reload();
-                clearInterval(downloadTimer);
-                rush.innerHTML = "Finished";
-            } else {
-                rush.innerHTML = timeleft + " seconds remaining";
-            }
-            timeleft -= 1;
-        }, 1000);
-        
     }
-
 }
 function resetButton() {
     location.reload()
