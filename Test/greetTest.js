@@ -2,14 +2,14 @@ describe("The Greetings factory function", function() {
     describe("enter the name", function() {
   
   
-      it ("should be able to greet any name.", function () {
+      it ("should be able to greet Bantu.", function () {
 
           let greetThem = GreetWithRespect();  
          
 
-          greetThem.setName("activeName");
-        const response = greetThem.setName("activeName")
-          assert.equal(response);
+          greetThem.setName("Bantu");
+       
+          assert.equal(1, greetThem.greetCounter());
     
         });
 

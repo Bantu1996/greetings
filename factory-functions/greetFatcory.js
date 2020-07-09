@@ -8,9 +8,13 @@ function GreetWithRespect(saluted) {
                 greetedNames[activeName] = 0;
             }
         }
+       
     }
-    function greetingLanguages(selectedLanguage, activeName) {
 
+ 
+
+    function greetingLanguages(selectedLanguage, activeName) {
+       
         if (selectedLanguage === "English") {
             return "Hello, " + activeName;
         }
@@ -20,7 +24,7 @@ function GreetWithRespect(saluted) {
         if (selectedLanguage === "IsiXhosa") {
             return "Molo, " + activeName;
         }
-
+       
     }
 
     function greetCounter() {
@@ -31,10 +35,13 @@ function GreetWithRespect(saluted) {
     function getName() {
         return greetedNames;
     }
+
+
     return {
         setName,
         greetingLanguages,
         greetCounter,
         getName,
+     
     }
 }
