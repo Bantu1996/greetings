@@ -1,8 +1,8 @@
 describe("The Greetings factory function", function() {
-    describe("enter the name", function() {
+    describe("enter the name of a user", function() {
   
   
-      it ("should be able to greet Bantu.", function () {
+      it ("should be able to greet Bantu once.", function () {
 
           let greetThem = GreetWithRespect();  
          
@@ -12,6 +12,29 @@ describe("The Greetings factory function", function() {
           assert.equal(1, greetThem.greetCounter());
     
         });
+        it ("should be able to greet Bantu once.", function () {
+
+          let greetThem = GreetWithRespect();  
+         
+
+          greetThem.setName("Bantu");
+          greetThem.setName("Bantu");
+       
+          assert.equal(1, greetThem.greetCounter());
+    
+        });
+        it ("should be able to greet two different names once.", function () {
+
+          let greetThem = GreetWithRespect();  
+         
+
+          greetThem.setName("Bantu");
+          greetThem.setName("Zola");
+       
+          assert.equal(2, greetThem.greetCounter());
+    
+        });
+
 
     })
     describe("radio buttons", function() {
@@ -55,12 +78,16 @@ describe("The Greetings factory function", function() {
 
           let greetThem = GreetWithRespect();  
          
-
-          greetThem.greetCounter();
+          greetThem.setName('Bantu');
+          greetThem.setName('Breeze');
+          greetThem.setName('Bee');
+          greetThem.setName('Boss');
+          greetThem.setName('Boo');
+          greetThem.setName('Bobo');
           
 
       
-          assert.equal(0, greetThem.greetCounter());
+          assert.equal(6, greetThem.greetCounter());
     
         });
 });
